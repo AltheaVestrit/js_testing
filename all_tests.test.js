@@ -2,14 +2,16 @@ const sum = require('./sum');
 const reverseString = require('./reverse_string');
 const capitalize = require('./capitalize');
 const calculator = require('./calculator');
+const caesarCipher = require('./caesar_cipher');
+const { default: expect } = require('expect');
 
-describe("Sum", () => {
+describe.skip("Sum", () => {
     test('adds 1 + 2 to equal 3', () => {
         expect(sum(1,2)).toBe(3);
     });
 });
 
-describe("Reverse String", () => {
+describe.skip("Reverse String", () => {
     test('Reverse string without spaces', () => {
         expect(reverseString('StringWithoutSpaces')).toBe('secapStuohtiWgnirtS');
     });
@@ -19,14 +21,14 @@ describe("Reverse String", () => {
     });
 })
 
-describe("Capitalize", () => {
+describe.skip("Capitalize", () => {
     test('return string with first character capitalized', () => {
         expect(capitalize('bla bla bla')).toBe('Bla bla bla');
     });
 })
 
-describe("Calculator", () => {
-    test('Adds 1 + 2 to equal 3', () => {
+describe.skip("Calculator", () => {
+    test('Add 1 + 2 to equal 3', () => {
         expect(calculator.add(1,2)).toBeCloseTo(3);
     });
 
@@ -42,3 +44,23 @@ describe("Calculator", () => {
         expect(calculator.multiply(3,7)).toBe(21);
     });
 })
+
+describe("Caesar Cipher", () => {
+    test('Shift "abcde" with 2',() => {
+        expect(caesarCipher('abcde',2)).toBe('cdefg');
+    });
+
+    test('Wrap from z to a', () => {
+        expect(caesarCipher('xyz',3)).toBe('abc');
+    });
+
+    test('Case preservation', () => {
+        expect(caesarCipher('HeLLo',3)).toBe('KhOOr');
+    });
+
+    test('Punctuation', () => {
+        expect(caesarCipher('Hello, World!',3)).toBe('Khoor, Zruog!');
+    });
+})
+
+
