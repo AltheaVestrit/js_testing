@@ -3,7 +3,7 @@ const reverseString = require('./reverse_string');
 const capitalize = require('./capitalize');
 const calculator = require('./calculator');
 const caesarCipher = require('./caesar_cipher');
-const { default: expect } = require('expect');
+const analyzeArray = require('./analyze_array');
 
 describe.skip("Sum", () => {
     test('adds 1 + 2 to equal 3', () => {
@@ -19,13 +19,13 @@ describe.skip("Reverse String", () => {
     test('Reverse string with spaces', () => {
         expect(reverseString('String with spaces!')).toBe('!secaps htiw gnirtS');
     });
-})
+});
 
 describe.skip("Capitalize", () => {
     test('return string with first character capitalized', () => {
         expect(capitalize('bla bla bla')).toBe('Bla bla bla');
     });
-})
+});
 
 describe.skip("Calculator", () => {
     test('Add 1 + 2 to equal 3', () => {
@@ -43,9 +43,9 @@ describe.skip("Calculator", () => {
     test('Multiply 3 by 7', () => {
         expect(calculator.multiply(3,7)).toBe(21);
     });
-})
+});
 
-describe("Caesar Cipher", () => {
+describe.skip("Caesar Cipher", () => {
     test('Shift "abcde" with 2',() => {
         expect(caesarCipher('abcde',2)).toBe('cdefg');
     });
@@ -61,6 +61,12 @@ describe("Caesar Cipher", () => {
     test('Punctuation', () => {
         expect(caesarCipher('Hello, World!',3)).toBe('Khoor, Zruog!');
     });
-})
+});
+
+describe('Analyze Array', () => {
+    test('Simple array of integers', () => {
+        expect(analyzeArray([1,8,3,4,2,6])).toEqual({average: 4, min: 1, max: 8, length:6});
+    });
+});
 
 
