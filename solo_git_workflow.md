@@ -30,6 +30,10 @@ git add -A
 git commit --amend -m "Complete parser implementation"
 git push --force-with-lease
 ```
+If you don't want to change the commit message when amending, you can use this command:
+```bash
+git commit --amend --no-edit
+```
 
 **Option B: Squash multiple commits:**
 ```bash
